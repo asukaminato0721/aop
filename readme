@@ -1,0 +1,10 @@
+Algebra of programming
+
+rust version
+
+https://dl.acm.org/doi/10.5555/248932
+
+```
+cargo test
+cargo run
+```
