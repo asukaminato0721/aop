@@ -20,6 +20,14 @@ where
     Target: Eq + Hash + Clone,
     Source: Eq + Hash + Clone,
 {
+    pub fn iter(&self) -> impl Iterator<Item = &(Target, Source)> {
+        self.pairs.iter()
+    }
+
+    pub fn len(&self) -> usize {
+        self.pairs.len()
+    }
+
     pub fn new() -> Self {
         Self {
             pairs: HashSet::new(),
@@ -86,6 +94,14 @@ where
 
     pub fn right_values(&self) -> HashSet<Source> {
         self.pairs.iter().map(|(_, s)| s.clone()).collect()
+    }
+
+    pub fn power_image(&self, subset: &HashSet<Source>) -> HashSet<Target> {
+        self.pairs
+            .iter()
+            .filter(|(_, source)| subset.contains(source))
+            .map(|(target, _)| target.clone())
+            .collect()
     }
 
     pub fn range_coreflexive(&self) -> Relation<Target, Target> {

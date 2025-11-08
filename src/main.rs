@@ -2,6 +2,7 @@ mod chapter1;
 mod chapter2;
 mod chapter3;
 mod chapter4;
+mod chapter5;
 
 use chapter1::{BoolValue, Both, Nat, ackermann, factorial, fibonacci, plus, switch_bool};
 use chapter2::{list, nat, swap};

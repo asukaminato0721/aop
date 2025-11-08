@@ -31,7 +31,7 @@ where
 }
 
 /// Coproduct type capturing categorical sums.
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub enum Sum<L, R> {
     Inl(L),
     Inr(R),
