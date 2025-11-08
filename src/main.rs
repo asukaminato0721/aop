@@ -1,4 +1,5 @@
 mod chapter1;
+mod chapter10;
 mod chapter2;
 mod chapter3;
 mod chapter4;

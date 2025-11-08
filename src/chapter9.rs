@@ -1,7 +1,5 @@
 #![allow(dead_code)]
 
-use std::cmp::min;
-
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub enum EditOp {
     Copy(char),
