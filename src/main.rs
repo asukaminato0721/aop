@@ -3,11 +3,13 @@ mod chapter2;
 mod chapter3;
 mod chapter4;
 mod chapter5;
+mod chapter6;
 
 use chapter1::{BoolValue, Both, Nat, ackermann, factorial, fibonacci, plus, switch_bool};
 use chapter2::{list, nat, swap};
 use chapter3::{average, banana_split_stats, intern_decimal, triangle_fn};
 use chapter4::{Function as RelFunction, Relation};
+use chapter6::{digits, fast_pow};
 use std::collections::HashSet;
 
 fn main() {
@@ -53,6 +55,8 @@ fn main() {
         tex_digits,
         intern_decimal(&tex_digits)
     );
+    println!("digits(1337) = {:?}", digits(1337));
+    println!("fast pow 5^6 = {}", fast_pow(5, 6));
 
     let relation = Relation::from_pairs(vec![
         ("approved".to_string(), "design".to_string()),
