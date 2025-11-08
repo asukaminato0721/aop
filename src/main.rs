@@ -1,8 +1,10 @@
 mod chapter1;
 mod chapter2;
+mod chapter3;
 
 use chapter1::{BoolValue, Both, Nat, ackermann, factorial, fibonacci, plus, switch_bool};
 use chapter2::{list, nat, swap};
+use chapter3::{average, banana_split_stats, intern_decimal, triangle_fn};
 
 fn main() {
     let result = plus(Nat::from(2), Nat::from(3));
@@ -31,4 +33,20 @@ fn main() {
 
     let swapped = swap(("left", 42));
     println!("swap (left, 42) -> ({}, {})", swapped.0, swapped.1);
+
+    let stats = banana_split_stats(list::from_vec(list_values.clone()));
+    println!("banana-split stats sum {} len {}", stats.0, stats.1);
+    if let Some(avg) = average(list::from_vec(list_values.clone())) {
+        println!("average {:?}", avg);
+    }
+
+    let triangle = triangle_fn(list::from_vec(vec![1, 2, 3]), |x| x + 1);
+    println!("triangle succ {:?}", list::to_vec(triangle));
+
+    let tex_digits = vec![1, 2, 5];
+    println!(
+        "intern decimal {:?} -> {}",
+        tex_digits,
+        intern_decimal(&tex_digits)
+    );
 }
