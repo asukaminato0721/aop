@@ -12,12 +12,12 @@ use std::hash::Hash;
 pub fn bang<T>(_value: T) {}
 
 /// Projection onto the first component (outl).
-pub fn outl<'a, A, B>(pair: &'a (A, B)) -> &'a A {
+pub fn outl<A, B>(pair: &(A, B)) -> &A {
     &pair.0
 }
 
 /// Projection onto the second component (outr).
-pub fn outr<'a, A, B>(pair: &'a (A, B)) -> &'a B {
+pub fn outr<A, B>(pair: &(A, B)) -> &B {
     &pair.1
 }
 
@@ -114,13 +114,13 @@ pub trait Functor {
 }
 
 /// Power-set mapping on concrete `HashSet`s.
-pub fn power_map<T, U, M>(set: HashSet<T>, mut mapper: M) -> HashSet<U>
+pub fn power_map<T, U, M>(set: HashSet<T>, mapper: M) -> HashSet<U>
 where
     T: Eq + Hash,
     U: Eq + Hash,
     M: FnMut(T) -> U,
 {
-    set.into_iter().map(|item| mapper(item)).collect()
+    set.into_iter().map(mapper).collect()
 }
 
 /// Fixpoint of a functor – represents the carrier `T` of an initial `F`-algebra.
@@ -239,7 +239,7 @@ pub mod nat {
     }
 
     pub fn add(a: Nat, b: Nat) -> Nat {
-        fold(a, b, |acc| succ(acc))
+        fold(a, b, succ)
     }
 }
 

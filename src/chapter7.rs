@@ -1,6 +1,6 @@
 #![allow(dead_code)]
 
-pub fn minimal_elements<'a, T, R>(items: &'a [T], rel: R) -> Vec<&'a T>
+pub fn minimal_elements<T, R>(items: &[T], rel: R) -> Vec<&T>
 where
     R: Fn(&T, &T) -> bool,
 {

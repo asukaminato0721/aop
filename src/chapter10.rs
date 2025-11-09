@@ -14,11 +14,10 @@ pub fn tex_extern(n: u32, max_len: usize) -> Option<Vec<u8>> {
             } else {
                 target.checked_add(delta as u64)
             };
-            if let Some(value) = cand {
-                if value < factor {
+            if let Some(value) = cand
+                && value < factor {
                     candidates.push(value);
                 }
-            }
         }
         candidates.sort();
         candidates.dedup();
